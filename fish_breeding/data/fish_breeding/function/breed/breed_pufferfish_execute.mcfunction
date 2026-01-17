@@ -9,8 +9,8 @@ execute as @e[tag=fb.parent1] run tag @s add fb.breeding
 execute as @e[type=minecraft:pufferfish,distance=..5,tag=fb.tracked,tag=!fb.breeding,scores={fb.breed_cooldown=0,fb.mature_cooldown=0},limit=1,sort=nearest] run tag @s add fb.parent2
 execute as @e[tag=fb.parent2] run tag @s add fb.breeding
 
-# Spawn offspring at kelp location
-execute at @s run summon minecraft:pufferfish ~ ~ ~ {Tags:["fb.tracked","fb.juvenile","fb.newborn"]}
+# Spawn offspring at center of block to avoid suffocation
+execute at @s align xyz run summon minecraft:pufferfish ~0.5 ~0.5 ~0.5 {Tags:["fb.tracked","fb.juvenile","fb.newborn"]}
 
 # Set maturation cooldown on offspring
 execute as @e[type=minecraft:pufferfish,tag=fb.newborn,limit=1] run scoreboard players operation @s fb.mature_cooldown = #mature_cooldown fb.config
