@@ -1,5 +1,8 @@
 # Fish Breeding - Random Tropical Fish Variant
-# Spawns a tropical fish with a naturally randomized variant
+# Spawns a tropical fish with a truly random 24-bit variant
 
-# Summon offspring at center of block without specifying Variant - Minecraft will generate a random one
-execute at @s align xyz run summon minecraft:tropical_fish ~0.5 ~0.5 ~0.5 {Tags:["fb.tracked","fb.juvenile","fb.newborn"]}
+# Generate random 24-bit variant value (0 to 16777215)
+execute store result storage fshb:temp variant int 1 run random value 0..16777215
+
+# Call macro function to summon offspring with the random variant
+function fshb:tropical/summon_with_variant with storage fshb:temp
