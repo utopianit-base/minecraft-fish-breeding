@@ -12,4 +12,4 @@ function fish_breeding:core/init_fish
 function fish_breeding:core/process_cooldowns
 
 # Process kelp items for breeding (only if kelp exists)
-execute if entity @e[type=item,nbt={Item:{id:"minecraft:kelp"}},limit=1] run function fish_breeding:core/process_kelp
+execute if entity @e[type=item,limit=1,nbt={Item:{id:"minecraft:kelp"}}] run function fish_breeding:core/process_kelp
