@@ -2,4 +2,4 @@
 # Tags newly spawned or loaded fish with breeding system tracking
 
 # Initialize all untracked breedable fish
-execute as @e[type=#fish_breeding:breedable_fish,tag=!fb.tracked] run function fish_breeding:core/init_fish_single
+execute as @e[type=#fshb:breedable_fish,tag=!fb.tracked] run function fshb:core/init_fish_single

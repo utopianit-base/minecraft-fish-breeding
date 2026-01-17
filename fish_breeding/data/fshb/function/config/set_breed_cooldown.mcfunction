@@ -1,5 +1,5 @@
 # Fish Breeding - Set Breeding Cooldown
-# Usage: /function fish_breeding:config/set_breed_cooldown {ticks:6000}
+# Usage: /function fshb:config/set_breed_cooldown {ticks:6000}
 # Sets the breeding cooldown duration in ticks (20 ticks = 1 second)
 #
 # Reference values:

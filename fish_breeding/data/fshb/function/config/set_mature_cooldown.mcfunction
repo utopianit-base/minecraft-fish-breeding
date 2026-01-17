@@ -1,5 +1,5 @@
 # Fish Breeding - Set Maturation Cooldown
-# Usage: /function fish_breeding:config/set_mature_cooldown {ticks:36000}
+# Usage: /function fshb:config/set_mature_cooldown {ticks:36000}
 # Sets the maturation cooldown duration for juvenile fish in ticks
 #
 # Reference values:

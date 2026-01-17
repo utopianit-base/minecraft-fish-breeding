@@ -1,5 +1,5 @@
 # Fish Breeding - Set Tick Frequency
-# Usage: /function fish_breeding:config/set_tick_frequency {ticks:20}
+# Usage: /function fshb:config/set_tick_frequency {ticks:20}
 # Sets the interval between processing cycles in ticks
 #
 # Performance impact:

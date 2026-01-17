@@ -13,10 +13,10 @@ execute as @e[tag=fb.parent2] run tag @s add fb.breeding
 execute store result score #random fb.temp run random value 1..100
 
 # 80% chance to inherit from a parent
-execute if score #random fb.temp matches 1..80 run function fish_breeding:tropical/inherit_variant
+execute if score #random fb.temp matches 1..80 run function fshb:tropical/inherit_variant
 
 # 20% chance for random variant
-execute if score #random fb.temp matches 81..100 run function fish_breeding:tropical/random_variant
+execute if score #random fb.temp matches 81..100 run function fshb:tropical/random_variant
 
 # Set maturation cooldown on offspring
 execute as @e[type=minecraft:tropical_fish,tag=fb.newborn,limit=1] run scoreboard players operation @s fb.mature_cooldown = #mature_cooldown fb.config

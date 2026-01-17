@@ -5,5 +5,5 @@
 execute store result score #parent_select fb.temp run random value 1..2
 
 # Get the variant from parent1 or parent2
-execute if score #parent_select fb.temp matches 1 run function fish_breeding:tropical/inherit_from_parent1
-execute if score #parent_select fb.temp matches 2 run function fish_breeding:tropical/inherit_from_parent2
+execute if score #parent_select fb.temp matches 1 run function fshb:tropical/inherit_from_parent1
+execute if score #parent_select fb.temp matches 2 run function fshb:tropical/inherit_from_parent2

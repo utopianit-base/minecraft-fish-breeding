@@ -2,19 +2,19 @@
 # Triggered on datapack load, world reload, or /reload command
 
 # Initialize scoreboard objectives
-function fish_breeding:init/scoreboards
+function fshb:init/scoreboards
 
 # Set default configuration values
-function fish_breeding:init/config
+function fshb:init/config
 
 # Schedule the first tick
-schedule function fish_breeding:tick 1t
+schedule function fshb:tick 1t
 
 # Announce to all players in chat
 tellraw @a {"text":"==========================================","color":"aqua"}
 tellraw @a [{"text":"  Fish Breeding","color":"gold","bold":true},{"text":" Datapack Loaded!","color":"green","bold":true}]
 tellraw @a [{"text":"  Drop ","color":"gray"},{"text":"kelp","color":"green"},{"text":" near two fish to breed them","color":"gray"}]
-tellraw @a [{"text":"  Use ","color":"gray"},{"text":"/function fish_breeding:config/show_config","color":"yellow"},{"text":" for settings","color":"gray"}]
+tellraw @a [{"text":"  Use ","color":"gray"},{"text":"/function fshb:config/show_config","color":"yellow"},{"text":" for settings","color":"gray"}]
 tellraw @a {"text":"==========================================","color":"aqua"}
 
 # Log to server console
