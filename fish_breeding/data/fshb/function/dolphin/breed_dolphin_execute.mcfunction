@@ -1,15 +1,25 @@
 # Dolphin Breeding - Execute Dolphin Breeding
 # Spawns baby dolphin and applies effects
 
+tellraw @a [{"text":"[DEBUG] breed_dolphin_execute called","color":"green"}]
+
 # Tag the first eligible dolphin as parent1
 # Age check: Only select dolphins with Age >= 0 (adults)
+execute as @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},limit=1,sort=nearest] run tellraw @a [{"text":"[DEBUG] Checking first dolphin Age","color":"white"}]
 execute as @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},limit=1,sort=nearest] if data entity @s {Age:0} run tag @s add db.parent1
+execute as @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},limit=1,sort=nearest] if data entity @s {Age:0} run tellraw @a [{"text":"[DEBUG] Parent1 tagged","color":"green"}]
 execute as @e[tag=db.parent1] run tag @s add db.breeding
 
 # Tag the second eligible dolphin as parent2
 # Age check: Only select dolphins with Age >= 0 (adults)
+execute as @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},limit=1,sort=nearest] run tellraw @a [{"text":"[DEBUG] Checking second dolphin Age","color":"white"}]
 execute as @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},limit=1,sort=nearest] if data entity @s {Age:0} run tag @s add db.parent2
+execute as @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},limit=1,sort=nearest] if data entity @s {Age:0} run tellraw @a [{"text":"[DEBUG] Parent2 tagged","color":"green"}]
 execute as @e[tag=db.parent2] run tag @s add db.breeding
+
+# Check if we have both parents
+execute store result score #parent_count fb.temp if entity @e[tag=db.breeding]
+tellraw @a [{"text":"[DEBUG] Parents selected: ","color":"white"},{"score":{"name":"#parent_count","objective":"fb.temp"},"color":"gold"}]
 
 # Spawn baby dolphin at center of block to avoid suffocation
 # Baby dolphins use vanilla Age mechanics (Age:-24000 means 20 minutes to grow)
