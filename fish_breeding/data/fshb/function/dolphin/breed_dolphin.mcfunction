@@ -3,9 +3,9 @@
 
 tellraw @a [{"text":"[DEBUG] breed_dolphin called","color":"gold"}]
 
-# Count eligible adult dolphins within 5 blocks
-# Must be tracked, not breeding, no cooldown, and adult (Age >= 0)
-execute store result score #dolphin_count fb.temp if entity @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},predicate=fshb:is_adult_dolphin]
+# Count eligible dolphins within 5 blocks
+# Must be tracked, not breeding, no cooldown (age check done in execute later)
+execute store result score #dolphin_count fb.temp if entity @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0}]
 
 tellraw @a [{"text":"[DEBUG] Final dolphin count: ","color":"white"},{"score":{"name":"#dolphin_count","objective":"fb.temp"},"color":"gold"}]
 

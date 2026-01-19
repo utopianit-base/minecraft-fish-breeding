@@ -1,12 +1,14 @@
 # Dolphin Breeding - Execute Dolphin Breeding
 # Spawns baby dolphin and applies effects
 
-# Tag the first eligible adult dolphin as parent1
-execute as @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},predicate=fshb:is_adult_dolphin,limit=1,sort=nearest] run tag @s add db.parent1
+# Tag the first eligible dolphin as parent1
+# Age check: Only select dolphins with Age >= 0 (adults)
+execute as @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},limit=1,sort=nearest] if data entity @s {Age:0} run tag @s add db.parent1
 execute as @e[tag=db.parent1] run tag @s add db.breeding
 
-# Tag the second eligible adult dolphin as parent2
-execute as @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},predicate=fshb:is_adult_dolphin,limit=1,sort=nearest] run tag @s add db.parent2
+# Tag the second eligible dolphin as parent2
+# Age check: Only select dolphins with Age >= 0 (adults)
+execute as @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},limit=1,sort=nearest] if data entity @s {Age:0} run tag @s add db.parent2
 execute as @e[tag=db.parent2] run tag @s add db.breeding
 
 # Spawn baby dolphin at center of block to avoid suffocation

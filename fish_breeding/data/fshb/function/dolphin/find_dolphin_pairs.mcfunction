@@ -17,16 +17,16 @@ tellraw @a [{"text":"[DEBUG] Dolphins within 5 blocks: ","color":"white"},{"scor
 execute store result score #tracked_dolphins fb.temp if entity @e[type=minecraft:dolphin,distance=..5,tag=db.tracked]
 tellraw @a [{"text":"[DEBUG] Tracked dolphins: ","color":"white"},{"score":{"name":"#tracked_dolphins","objective":"fb.temp"},"color":"gold"}]
 
-# Count eligible dolphins (all criteria)
-execute store result score #eligible_dolphins fb.temp if entity @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},predicate=fshb:is_adult_dolphin]
-tellraw @a [{"text":"[DEBUG] Eligible adult dolphins: ","color":"white"},{"score":{"name":"#eligible_dolphins","objective":"fb.temp"},"color":"gold"}]
+# Count eligible dolphins (without age check for now)
+execute store result score #eligible_dolphins fb.temp if entity @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0}]
+tellraw @a [{"text":"[DEBUG] Eligible dolphins (no age check): ","color":"white"},{"score":{"name":"#eligible_dolphins","objective":"fb.temp"},"color":"gold"}]
 
 # Check for dolphins ready to breed:
 # - Must be tracked (initialized in system)
 # - Must not be currently breeding (tag check)
 # - Must have no breeding cooldown (score check)
-# - Must be adult (Age >= 0, checked via predicate)
+# - Age check will be done inside breed_dolphin_execute
 # - Need at least 2 dolphins meeting criteria
 # - Only proceed if tropical fish hasn't been used yet
-execute if entity @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},predicate=fshb:is_adult_dolphin,limit=2] unless entity @e[tag=db.tropical_fish_used,limit=1] run tellraw @a [{"text":"[DEBUG] Calling breed_dolphin","color":"green"}]
-execute if entity @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},predicate=fshb:is_adult_dolphin,limit=2] unless entity @e[tag=db.tropical_fish_used,limit=1] run function fshb:dolphin/breed_dolphin
+execute if entity @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},limit=2] unless entity @e[tag=db.tropical_fish_used,limit=1] run tellraw @a [{"text":"[DEBUG] Calling breed_dolphin","color":"green"}]
+execute if entity @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},limit=2] unless entity @e[tag=db.tropical_fish_used,limit=1] run function fshb:dolphin/breed_dolphin
