@@ -1,0 +1,11 @@
+# Dolphin Breeding - Process Tropical Fish Items
+# Iterates through all dropped raw tropical fish items and triggers breeding checks
+
+# Only process if dolphin breeding is enabled
+execute unless score #dolphins_breed fb.config matches 1 run return 0
+
+# Process each tropical fish item that hasn't been used yet
+execute as @e[type=item,nbt={Item:{id:"minecraft:tropical_fish"}},tag=!db.tropical_fish_used] at @s run function fshb:dolphin/find_dolphin_pairs
+
+# Consume one tropical fish from each used stack (or remove if only 1)
+execute as @e[type=item,tag=db.tropical_fish_used] run function fshb:dolphin/consume_tropical_fish
