@@ -6,6 +6,7 @@
 execute unless score #config_loaded fb.config matches 1 run scoreboard players set #breed_cooldown fb.config 6000
 execute unless score #config_loaded fb.config matches 1 run scoreboard players set #mature_cooldown fb.config 36000
 execute unless score #config_loaded fb.config matches 1 run scoreboard players set #tick_frequency fb.config 20
+execute unless score #config_loaded fb.config matches 1 run scoreboard players set #fish_breed fb.config 1
 execute unless score #config_loaded fb.config matches 1 run scoreboard players set #dolphins_breed fb.config 0
 execute unless score #config_loaded fb.config matches 1 run scoreboard players set #dolphin_breed_cooldown fb.config 6000
 
