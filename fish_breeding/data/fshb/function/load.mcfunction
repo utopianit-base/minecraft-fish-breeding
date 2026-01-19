@@ -18,6 +18,3 @@ tellraw @a [{"text":"  Right-click dolphins with ","color":"gray"},{"text":"trop
 tellraw @a [{"text":"  Use ","color":"gray"},{"text":"/function fshb:config/show_config","color":"yellow","clickEvent":{"action":"run_command","value":"/function fshb:config/show_config"},"hoverEvent":{"action":"show_text","value":"Click to show config"}},{"text":" for settings","color":"gray"}]
 tellraw @a [{"text":"  Datapack v1.1 by KrakenKutlass and TechBrat","color":"dark_gray"}]
 tellraw @a {"text":"==========================================","color":"aqua"}
-
-# Log to server console
-say [Fish Breeding] Datapack v1.1 loaded successfully - Fish breeding is now enabled!
