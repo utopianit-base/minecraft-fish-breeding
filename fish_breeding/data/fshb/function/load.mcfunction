@@ -16,7 +16,8 @@ tellraw @a [{"text":"  Fish Breeding","color":"gold","bold":true},{"text":" Data
 tellraw @a [{"text":"  Drop ","color":"gray"},{"text":"kelp","color":"green"},{"text":" near two fish to breed them","color":"gray"}]
 tellraw @a [{"text":"  Right-click dolphins with ","color":"gray"},{"text":"tropical fish","color":"aqua"},{"text":" to breed (enable in config)","color":"gray"}]
 tellraw @a [{"text":"  Use ","color":"gray"},{"text":"/function fshb:config/show_config","color":"yellow","clickEvent":{"action":"run_command","value":"/function fshb:config/show_config"},"hoverEvent":{"action":"show_text","value":"Click to show config"}},{"text":" for settings","color":"gray"}]
+tellraw @a [{"text":"  Datapack v1.1 by KrakenKutlass and TechBrat","color":"dark_gray"}]
 tellraw @a {"text":"==========================================","color":"aqua"}
 
 # Log to server console
-say [Fish Breeding] Datapack v1.0 loaded successfully - Fish breeding is now enabled!
+say [Fish Breeding] Datapack v1.1 loaded successfully - Fish breeding is now enabled!
