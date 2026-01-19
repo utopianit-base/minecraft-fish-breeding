@@ -19,9 +19,10 @@ In vanilla Minecraft, fish cannot be bred like other animals. While players can 
 - **Stack-friendly:** Breeding consumes only 1 kelp from a stack
 
 ### Dolphin Breeding (Optional)
-- **Breed dolphins:** Optional breeding system for dolphins (disabled by default)
-- **Tropical fish-based breeding:** Drop raw tropical fish (the item, not bucket) near two adult dolphins
-- **Adult-only breeding:** Only adult dolphins (Age ≥ 0) can breed; babies are exempt
+- **Vanilla-style breeding:** Right-click dolphins with tropical fish just like vanilla animals (disabled by default)
+- **Love mode mechanic:** Dolphins enter "love mode" for 60 seconds with heart particles
+- **Auto-breeding:** Two love-mode dolphins within 3 blocks breed automatically
+- **Adult-only breeding:** Only adult dolphins (Age = 0) can enter love mode; babies are exempt
 - **Vanilla growth mechanics:** Baby dolphins use vanilla Age system and grow naturally
 - **Breeding cooldown:** 5-minute cooldown between breeding (configurable)
 - **Toggle system:** Enable/disable dolphin breeding independently from fish breeding
@@ -43,11 +44,12 @@ In vanilla Minecraft, fish cannot be bred like other animals. While players can 
 4. A new fish will spawn at the kelp's location
 
 ### Dolphin Breeding
-1. Enable dolphin breeding: `/function fshb:config/enable_dolphin_breeding`
-2. Find or spawn two adult dolphins in water
-3. Drop raw tropical fish (the item) near them (within 5 blocks)
-4. Watch for heart particles indicating successful breeding
-5. A baby dolphin will spawn and grow naturally over time
+1. Enable dolphin breeding: `/function fshb:config/toggle_dolphin_breeding`
+2. Find or spawn two adult dolphins
+3. **Right-click** each dolphin with raw tropical fish to put them in "love mode" (60 seconds)
+4. Watch for heart particles above each dolphin
+5. When two love-mode dolphins are within 3 blocks, they'll breed automatically
+6. A baby dolphin will spawn and grow naturally over time
 
 ## Configuration
 
