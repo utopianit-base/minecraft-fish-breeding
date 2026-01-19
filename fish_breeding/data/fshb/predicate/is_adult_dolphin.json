@@ -4,7 +4,7 @@
   "predicate": {
     "type": "minecraft:dolphin",
     "type_specific": {
-      "type": "minecraft:ageable",
+      "type": "ageable",
       "age": {
         "min": 0
       }
