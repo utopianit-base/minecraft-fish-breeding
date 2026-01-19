@@ -13,3 +13,8 @@ function fshb:core/process_cooldowns
 
 # Process kelp items for breeding (only if kelp exists)
 execute if entity @e[type=item,limit=1,nbt={Item:{id:"minecraft:kelp"}}] run function fshb:core/process_kelp
+
+# Dolphin Breeding System (only if enabled)
+execute if score #dolphins_breed fb.config matches 1 run function fshb:dolphin/init_dolphins
+execute if score #dolphins_breed fb.config matches 1 run function fshb:dolphin/process_cooldowns
+execute if score #dolphins_breed fb.config matches 1 if entity @e[type=item,limit=1,nbt={Item:{id:"minecraft:tropical_fish"}}] run function fshb:dolphin/process_tropical_fish

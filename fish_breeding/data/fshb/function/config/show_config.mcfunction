@@ -16,4 +16,14 @@ tellraw @s [{"text":"Maturation Cooldown: ","color":"white"},{"score":{"name":"#
 execute store result storage fshb:display tick_frequency int 1 run scoreboard players get #tick_frequency fb.config
 tellraw @s [{"text":"Tick Frequency: ","color":"white"},{"score":{"name":"#tick_frequency","objective":"fb.config"},"color":"yellow"},{"text":" ticks","color":"gray"}]
 
+tellraw @s {"text":"","color":"white"}
+
+# Display dolphin breeding status
+execute if score #dolphins_breed fb.config matches 1 run tellraw @s [{"text":"Dolphin Breeding: ","color":"white"},{"text":"ENABLED","color":"green","bold":true}]
+execute if score #dolphins_breed fb.config matches 0 run tellraw @s [{"text":"Dolphin Breeding: ","color":"white"},{"text":"DISABLED","color":"red","bold":true}]
+
+# Display dolphin breeding cooldown (if enabled)
+execute if score #dolphins_breed fb.config matches 1 store result storage fshb:display dolphin_breed_cooldown int 1 run scoreboard players get #dolphin_breed_cooldown fb.config
+execute if score #dolphins_breed fb.config matches 1 run tellraw @s [{"text":"Dolphin Breed Cooldown: ","color":"white"},{"score":{"name":"#dolphin_breed_cooldown","objective":"fb.config"},"color":"yellow"},{"text":" ticks","color":"gray"}]
+
 tellraw @s {"text":"===================================","color":"gold"}

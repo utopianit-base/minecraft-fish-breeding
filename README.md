@@ -1,13 +1,14 @@
 # Fish Breeding Datapack
 
-A Minecraft Java Edition 1.21.1 datapack that adds fish breeding mechanics to the game.
+A Minecraft Java Edition 1.21.1 datapack that adds fish breeding mechanics and dolphin breeding to the game.
 
 ## Why This Datapack?
 
-In vanilla Minecraft, fish cannot be bred like other animals. While players can breed cows, pigs, sheep, and many other creatures, fish remain unbreedable. This datapack fills that gap by introducing a kelp-based breeding system for all four vanilla fish species.
+In vanilla Minecraft, fish cannot be bred like other animals. While players can breed cows, pigs, sheep, and many other creatures, fish remain unbreedable. This datapack fills that gap by introducing a kelp-based breeding system for all four vanilla fish species, plus an optional dolphin breeding system using tropical fish.
 
 ## Features
 
+### Fish Breeding
 - **Breed all vanilla fish species:** Cod, Salmon, Pufferfish, and Tropical Fish
 - **Kelp-based breeding:** Drop kelp near two fish of the same species to trigger breeding
 - **Proximity detection:** Fish must be within 5 blocks of the dropped kelp
@@ -16,6 +17,14 @@ In vanilla Minecraft, fish cannot be bred like other animals. While players can 
 - **Tropical fish variant inheritance:** 80% chance to inherit a parent's appearance, 20% chance for a random variant
 - **Visual feedback:** Heart particles and XP orbs (1-3) on successful breeding
 - **Stack-friendly:** Breeding consumes only 1 kelp from a stack
+
+### Dolphin Breeding (Optional)
+- **Breed dolphins:** Optional breeding system for dolphins (disabled by default)
+- **Tropical fish-based breeding:** Drop raw tropical fish (the item, not bucket) near two adult dolphins
+- **Adult-only breeding:** Only adult dolphins (Age ≥ 0) can breed; babies are exempt
+- **Vanilla growth mechanics:** Baby dolphins use vanilla Age system and grow naturally
+- **Breeding cooldown:** 5-minute cooldown between breeding (configurable)
+- **Toggle system:** Enable/disable dolphin breeding independently from fish breeding
 
 ## Installation
 
@@ -27,21 +36,37 @@ In vanilla Minecraft, fish cannot be bred like other animals. While players can 
 
 ## Usage
 
+### Fish Breeding
 1. Find or spawn two fish of the same species in water
 2. Drop kelp near them (within 5 blocks)
 3. Watch for heart particles indicating successful breeding
 4. A new fish will spawn at the kelp's location
 
+### Dolphin Breeding
+1. Enable dolphin breeding: `/function fshb:config/enable_dolphin_breeding`
+2. Find or spawn two adult dolphins in water
+3. Drop raw tropical fish (the item) near them (within 5 blocks)
+4. Watch for heart particles indicating successful breeding
+5. A baby dolphin will spawn and grow naturally over time
+
 ## Configuration
 
 Adjust settings using these commands:
 
+### General Configuration
 | Command | Description |
 |---------|-------------|
 | `/function fshb:config/show_config` | View current settings |
-| `/function fshb:config/set_breed_cooldown {ticks:6000}` | Set breeding cooldown (default: 6000 ticks / 5 min) |
-| `/function fshb:config/set_mature_cooldown {ticks:36000}` | Set maturation cooldown (default: 36000 ticks / 30 min) |
+| `/function fshb:config/set_breed_cooldown {ticks:6000}` | Set fish breeding cooldown (default: 6000 ticks / 5 min) |
+| `/function fshb:config/set_mature_cooldown {ticks:36000}` | Set fish maturation cooldown (default: 36000 ticks / 30 min) |
 | `/function fshb:config/set_tick_frequency {ticks:20}` | Set processing frequency (default: 20 ticks / 1 sec) |
+
+### Dolphin Breeding Configuration
+| Command | Description |
+|---------|-------------|
+| `/function fshb:config/enable_dolphin_breeding` | Enable dolphin breeding system |
+| `/function fshb:config/disable_dolphin_breeding` | Disable dolphin breeding system |
+| `/function fshb:config/toggle_dolphin_breeding` | Toggle dolphin breeding on/off |
 
 ## Technical Details
 
