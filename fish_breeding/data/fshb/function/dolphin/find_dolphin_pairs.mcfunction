@@ -21,6 +21,14 @@ tellraw @a [{"text":"[DEBUG] Tracked dolphins: ","color":"white"},{"score":{"nam
 execute store result score #eligible_dolphins fb.temp if entity @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0}]
 tellraw @a [{"text":"[DEBUG] Eligible dolphins (no age check): ","color":"white"},{"score":{"name":"#eligible_dolphins","objective":"fb.temp"},"color":"gold"}]
 
+# Check if tropical fish is already used
+execute if entity @e[tag=db.tropical_fish_used,limit=1] run tellraw @a [{"text":"[DEBUG] Tropical fish already used!","color":"red"}]
+execute unless entity @e[tag=db.tropical_fish_used,limit=1] run tellraw @a [{"text":"[DEBUG] Tropical fish not used yet","color":"green"}]
+
+# Check if dolphin condition passes
+execute if entity @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},limit=2] run tellraw @a [{"text":"[DEBUG] Dolphin condition PASSED","color":"green"}]
+execute unless entity @e[type=minecraft:dolphin,distance=..5,tag=db.tracked,tag=!db.breeding,scores={db.breed_cooldown=0},limit=2] run tellraw @a [{"text":"[DEBUG] Dolphin condition FAILED","color":"red"}]
+
 # Check for dolphins ready to breed:
 # - Must be tracked (initialized in system)
 # - Must not be currently breeding (tag check)
