@@ -17,4 +17,4 @@ execute if entity @e[type=item,limit=1,nbt={Item:{id:"minecraft:kelp"}}] run fun
 # Dolphin Breeding System (only if enabled)
 execute if score #dolphins_breed fb.config matches 1 run function fshb:dolphin/init_dolphins
 execute if score #dolphins_breed fb.config matches 1 run function fshb:dolphin/process_cooldowns
-execute if score #dolphins_breed fb.config matches 1 if entity @e[type=item,limit=1,nbt={Item:{id:"minecraft:tropical_fish"}}] run function fshb:dolphin/process_tropical_fish
+execute if score #dolphins_breed fb.config matches 1 if entity @e[type=minecraft:dolphin,tag=db.in_love,limit=1] run function fshb:dolphin/check_love_pairs

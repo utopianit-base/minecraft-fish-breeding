@@ -9,3 +9,4 @@ scoreboard objectives add fb.random dummy
 
 # Dolphin Breeding scoreboards
 scoreboard objectives add db.breed_cooldown dummy
+scoreboard objectives add db.love_timer dummy
