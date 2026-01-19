@@ -18,9 +18,9 @@ tellraw @s [{"text":"Tick Frequency: ","color":"white"},{"score":{"name":"#tick_
 
 tellraw @s {"text":"","color":"white"}
 
-# Display dolphin breeding status
-execute if score #dolphins_breed fb.config matches 1 run tellraw @s [{"text":"Dolphin Breeding: ","color":"white"},{"text":"ENABLED","color":"green","bold":true}]
-execute if score #dolphins_breed fb.config matches 0 run tellraw @s [{"text":"Dolphin Breeding: ","color":"white"},{"text":"DISABLED","color":"red","bold":true}]
+# Display dolphin breeding status (clickable to toggle)
+execute if score #dolphins_breed fb.config matches 1 run tellraw @s [{"text":"Dolphin Breeding: ","color":"white"},{"text":"[ENABLED]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function fshb:config/toggle_and_show"},"hoverEvent":{"action":"show_text","contents":"Click to disable"}}]
+execute if score #dolphins_breed fb.config matches 0 run tellraw @s [{"text":"Dolphin Breeding: ","color":"white"},{"text":"[DISABLED]","color":"red","bold":true,"clickEvent":{"action":"run_command","value":"/function fshb:config/toggle_and_show"},"hoverEvent":{"action":"show_text","contents":"Click to enable"}}]
 
 # Display dolphin breeding cooldown (if enabled)
 execute if score #dolphins_breed fb.config matches 1 store result storage fshb:display dolphin_breed_cooldown int 1 run scoreboard players get #dolphin_breed_cooldown fb.config
